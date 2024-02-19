@@ -1,15 +1,31 @@
-import './App.scss';
+import axios from 'axios';
+import { useState } from 'react';
 
 function App() {
+  const [data, setData] = useState({});
+  const [location, setLocation] = useState('');
+  const API_KEY = '03d7f3e68d02023a879dba217d018fff';
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&lang=fr&appid=${API_KEY}`;
+
+  const handleClick = () => {
+    axios.get(url).then((response) => {
+      setData(response.data);
+      console.log(response.data);
+    });
+    setLocation('');
+  };
+
   return (
-    <div className="flex justify-center w-full h-full">
-      <div className="flex justify-center m-4 w-[600px] border border-purple-500 rounded-3xl">
+    <div className="w-full h-full relative">
+      <div className="text-center m-4 w-[600px] border border-pink-500 rounded-3xl shadow-md">
         <input
           type="text"
           className="w-full py-3 px-6 text-lg rounded-3xl"
           placeholder="Cherchez votre ville"
+          value={location}
+          onChange={(event) => setLocation(event.target.value)}
         />
-        <button className="px-3">
+        <button className="px-3" onClick={handleClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="3em"
