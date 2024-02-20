@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
   const API_KEY = '03d7f3e68d02023a879dba217d018fff';
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&lang=fr&appid=${API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&lang=fr&appid=${API_KEY}`;
 
   const handleClick = () => {
     axios.get(url).then((response) => {
@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div className="w-full h-full relative">
-      <div className="flex justify-center py-4 border ">
-        <div className="flex text-lg bg-purple-500 w-[700px] rounded-3xl">
+      <div className="flex justify-center py-4 ">
+        <div className="flex text-lg bg-purple-500 w-[350px] rounded-3xl">
           <input
             type="text"
             className="w-full py-3 px-6 text-lg rounded-3xl focus:outline-purple-500"
