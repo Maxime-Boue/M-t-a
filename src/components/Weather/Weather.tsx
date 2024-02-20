@@ -1,5 +1,11 @@
-function Weather() {
-  return <div>Weather</div>;
+type WeatherProps = {
+  weatherData: {
+    weather: {};
+  };
+};
+
+function Weather({ weatherData }: WeatherProps) {
+  return <div>Coucou</div>;
 }
 
 export default Weather;
