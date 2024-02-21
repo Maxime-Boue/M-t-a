@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import ForecastWeather from '../ForecastWeather/ForecastWeather';
 import Weather from '../Weather/Weather';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         </div>
       </div>
       <Weather weatherData={data} />
+      <ForecastWeather />
     </div>
   );
 }
